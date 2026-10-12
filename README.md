@@ -18,9 +18,13 @@ The number at the start of each name sets the order and is dropped from the titl
 | Host API | Embedding Jyro in a .NET application |
 | Command line | The `jyro` tool |
 
+## Jyro for LLMs
+
+`jyro-for-llms.md` is a single document written for a language model that must write Jyro from a business problem: the rules, the assumptions from other languages that produce incorrect Jyro, the whole standard library, and verified patterns. Give it to the model as context. The standard library catalog inside it, between the `stdlib-catalog` markers, is generated.
+
 ## Generated pages
 
-The standard library pages, the category tables, and the error code table are generated from the Jyro build by `docs/tools/Generate.fsx` in the `jyro` repository. A page whose first line is `<!-- hand-written -->` is never touched by the generator; a page whose first line is `<!-- generated ... -->` is replaced on the next run. The scripts find this repository beside `jyro`, or under the root named by the `JYRO_DOC` environment variable.
+The standard library pages, the category tables, the error code table, and the catalog in `jyro-for-llms.md` are generated from the Jyro build by `docs/tools/Generate.fsx` in the `jyro` repository. A page whose first line is `<!-- hand-written -->` is never touched by the generator; a page whose first line is `<!-- generated ... -->` is replaced on the next run. The scripts find this repository beside `jyro`, or under the root named by the `JYRO_DOC` environment variable.
 
 ```
 cd ../jyro
