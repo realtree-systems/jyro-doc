@@ -4,7 +4,7 @@
 
 | Method | Input |
 | --- | --- |
-| `JyroScript.ExecuteScript(string source, object data)` | A .NET value, converted as `JyroRunner.WithInput(object)` converts it |
+| `JyroScript.ExecuteScript(string source, object data)` | A .NET value, converted as `JyroRunner.WithInput(object)` converts it; carries `RequiresUnreferencedCode` |
 | `JyroScript.ExecuteScriptWithJson(string source, string json)` | JSON text |
 
 Both return a `JyroExecutionResult`. A compilation error is reported in the result's `Messages` with its own stage; a run error has stage Execute. Neither method throws for a fault in the script or the input.

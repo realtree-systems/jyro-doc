@@ -48,7 +48,7 @@ Console.WriteLine(person.ToJson());
 
 ## FromJson
 
-`JyroValue.FromJson(string)` and `FromJson(Stream)` parse strict RFC 8259 JSON; `FromJsonAsync(Stream, CancellationToken)` is the asynchronous form. A number is exact when its text fits the exact representation and otherwise the nearest double. Text that is not JSON throws `JyroRuntimeException` with JM5917 `InvalidJson`, and nesting deeper than 128 throws JM5910 `ValueNestingLimitExceeded`. `JyroRunner.WithInputJson` reads the same way but reports a fault through `Execute`.
+`JyroValue.FromJson(string)`, `FromJson(ReadOnlySpan<byte>)` for UTF-8 bytes, and `FromJson(Stream)` parse strict RFC 8259 JSON; `FromJsonAsync(Stream, CancellationToken)` is the asynchronous form. A number is exact when its text fits the exact representation and otherwise the nearest double. Text that is not JSON throws `JyroRuntimeException` with JM5917 `InvalidJson`, and nesting deeper than 128 throws JM5910 `ValueNestingLimitExceeded`. `JyroRunner.WithInputJson` reads the same way but reports a fault through `Execute`.
 
 ## FromObject
 
@@ -69,7 +69,7 @@ Console.WriteLine(person.ToJson());
 | A delegate, reflection metadata, a `Task` or `ValueTask` | Refused with JM5923 `HostValueNotConvertible` |
 | Any other object, struct, record, anonymous type, or tuple | object of its public readable properties, then its public fields |
 
-A NaN or an infinity anywhere in the value is refused with JM5921 `HostNumberNaN` or JM5922 `HostNumberInfinite`. `FromObject` throws a `JyroRuntimeException` with the code; `WithInput` reports it through `Execute`. The conversion calls every public getter it reads and never calls `JsonSerializer`; a type whose shape is decided by `System.Text.Json` attributes or converters is serialized with `JsonSerializer.SerializeToElement` first and the element passed.
+A NaN or an infinity anywhere in the value is refused with JM5921 `HostNumberNaN` or JM5922 `HostNumberInfinite`. `FromObject` throws a `JyroRuntimeException` with the code; `WithInput` reports it through `Execute`. `FromObject` reads the public members of the host type through reflection and carries `RequiresUnreferencedCode`, so a host published with IL trimming gets warning IL2026 at the call and keeps the members of the types it converts, or passes JSON or a `JyroValue` instead. The conversion calls every public getter it reads and never calls `JsonSerializer`; a type whose shape is decided by `System.Text.Json` attributes or converters is serialized with `JsonSerializer.SerializeToElement` first and the element passed.
 
 ## ToObjectValue
 

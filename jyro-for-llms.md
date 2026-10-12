@@ -866,6 +866,7 @@ The complete library, by category. The signature shows each parameter with its t
 
 
 
+
 ## 13. Errors and limits
 
 Compilation errors (parse, validation, linking) stop the script before it runs: unknown names, wrong argument counts, misplaced declarations, a `+` with a string literal, a non-exhaustive `match`. Runtime errors stop the script at the failing statement; `Output` as written so far is returned with the diagnostic. A diagnostic reads `[JM5200] Ln 2, Col 16: Division by zero`: the code, the one-based line and column, and the message.

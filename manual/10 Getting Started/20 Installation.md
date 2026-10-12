@@ -32,7 +32,7 @@ The command prints the installed version.
 
 ## .NET package
 
-The `RealTree.Jyro` package contains the parser, the compiler, the standard library, and the host API. It targets .NET 8.0 and has one dependency, FParsec.
+The `RealTree.Jyro` package contains the parser, the compiler, the standard library, and the host API. It targets .NET 8.0 and depends on FParsec and FSharp.Core.
 
 ```bash
 dotnet add package RealTree.Jyro

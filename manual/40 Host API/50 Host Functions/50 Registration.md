@@ -42,4 +42,4 @@ CompiledProgram program = new JyroCompiler()
 
 ## Artifacts
 
-An artifact names the functions it requires. The loading host registers them with the same members on `JyroArtifactLoader`; `JyroArtifactInfo.RequiredFunctions` lists the names. See [Artifacts](/docs/host-api/compiling/artifacts).
+An artifact names the functions it requires. The loading host registers them with the same members on `JyroArtifactLoader`; `JyroArtifactInfo.RequiredFunctions` lists the names without loading the program, and `CompiledProgram.RequiredFunctions` lists the same names for a compiled or loaded program. See [Artifacts](/docs/host-api/compiling/artifacts).

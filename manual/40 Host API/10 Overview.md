@@ -1,6 +1,6 @@
 # Host API Overview
 
-The `RealTree.Jyro` NuGet package contains the parser, the compiler, the standard library, and the host API. It targets .NET 8.0 and depends on FParsec only. Every public type is in the `RealTree.Jyro` namespace, and no F# type appears on the public surface.
+The `RealTree.Jyro` NuGet package contains the parser, the compiler, the standard library, and the host API. It targets .NET 8.0 and depends on FParsec and FSharp.Core. Every public type is in the `RealTree.Jyro` namespace, and no F# type appears on the public surface. The assemblies are strong-named and trimmable, and a symbol package with portable PDBs is published beside the package.
 
 ```bash
 dotnet add package RealTree.Jyro
@@ -39,7 +39,7 @@ if (result.TryGetValue(out JyroValue output))
 
 ## Compile once, run many times
 
-A `CompiledProgram` holds the compiled script, the host functions it was linked with, and nothing else. It records no resource limit and no effect ceiling. A `JyroRunner` holds the input, the output seed, the limits, the cancellation token, and the other settings of one run. A program is compiled once and executed by as many runners as needed, each with its own input and limits.
+A `CompiledProgram` holds the compiled script and the host functions it was linked with, and exposes `RequiredFunctions`, the names of the standard library and host functions it calls. It records no resource limit and no effect ceiling. A `JyroRunner` holds the input, the output seed, the limits, the cancellation token, and the other settings of one run. A program is compiled once and executed by as many runners as needed, each with its own input and limits.
 
 | Belongs to the compilation | Belongs to the run |
 | --- | --- |
@@ -70,14 +70,6 @@ A run executes synchronously on the thread that calls `Execute`. Compilation, lo
 
 ## IL trimming
 
-The compiler builds LINQ expression trees that reach engine members through reflection. A project published with IL trimming, which is on by default for Blazor WebAssembly and .NET MAUI, must root the Jyro assemblies, or scripts that use lambdas fail at run time.
+The assemblies are trimmable. A host published with IL trimming, which Blazor WebAssembly and .NET MAUI turn on by default, needs no `TrimmerRootAssembly` entry for a Jyro assembly: the engine members that compiled scripts reach through reflection carry trimming annotations that keep them, and every script, lambdas included, runs as in an untrimmed host.
 
-```xml
-<ItemGroup>
-  <TrimmerRootAssembly Include="Jyro.Core" />
-  <TrimmerRootAssembly Include="Jyro.Parser" />
-  <TrimmerRootAssembly Include="Jyro.Compiler" />
-  <TrimmerRootAssembly Include="Jyro.Stdlib" />
-  <TrimmerRootAssembly Include="Jyro.Api" />
-</ItemGroup>
-```
+One conversion reads the host's own types. `JyroValue.FromObject`, `JyroRunner.WithInput(object)`, and `JyroScript.ExecuteScript(string, object)` convert a .NET object through the public properties and fields of its type, which the trimmer may remove, so they carry `RequiresUnreferencedCode` and a trimmed host gets warning IL2026 at its call to one of them. Such a host keeps the members of the types it converts, as for any reflection-based serializer, or passes its input as JSON (`WithInputJson`, `ExecuteScriptWithJson`) or as a `JyroValue`, which do not warn.

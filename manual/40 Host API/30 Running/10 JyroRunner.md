@@ -22,7 +22,7 @@ JyroExecutionResult result = new JyroRunner(program)
 | --- | --- |
 | `JyroRunner(CompiledProgram)` | The program to run. |
 | `WithInput(JyroValue)` | The value of `Input`. `null` is the Jyro `null`. |
-| `WithInput(object)` | A .NET value converted to a Jyro value; see [JyroValue](/docs/host-api/values/jyrovalue). |
+| `WithInput(object)` | A .NET value converted to a Jyro value; see [JyroValue](/docs/host-api/values/jyrovalue). Carries `RequiresUnreferencedCode`: a trimmed host gets warning IL2026 at the call. |
 | `WithInputJson(string)` | JSON text, parsed as strict RFC 8259 JSON. |
 | `WithInputJson(Stream)` | UTF-8 JSON read once from the stream, at the next `Execute`. |
 | `WithOutput(JyroValue)` | The starting value of `Output`. Each run starts from a copy. |

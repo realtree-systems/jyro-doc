@@ -61,7 +61,7 @@ if (JyroArtifactInfo.Read(artifact).TryGetValue(out JyroArtifactInfo info))
 }
 ```
 
-`JyroArtifactInfo` has value equality, and `ToString()` gives the version, the hash as 64 lowercase hexadecimal digits, and the required functions on one line. The read applies the same size, version, and table guards as a load.
+`JyroArtifactInfo` has value equality, and `ToString()` gives the version, the hash as 64 lowercase hexadecimal digits, and the required functions on one line. `RequiredFunctions` equals the `RequiredFunctions` of the `CompiledProgram` the artifact was written from, and of the program a load gives. The read applies the same size, version, and table guards as a load.
 
 ## Format
 

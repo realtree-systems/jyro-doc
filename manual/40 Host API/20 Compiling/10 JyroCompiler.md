@@ -53,4 +53,4 @@ On single-threaded browser WebAssembly, compilation runs on the caller's thread 
 
 ## CompiledProgram
 
-`CompiledProgram` has no public members. It is immutable and may be shared across threads and executed concurrently. It holds the host functions it was linked with; a runner needs no function set. It records neither the resource limits nor the effect ceiling in force when it was compiled.
+`CompiledProgram` has one public member, `RequiredFunctions`: the names of the standard library and host functions the program calls, each once, in the order of the function table of an artifact of the program. It is immutable and may be shared across threads and executed concurrently. It holds the host functions it was linked with; a runner needs no function set. It records neither the resource limits nor the effect ceiling in force when it was compiled.

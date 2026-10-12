@@ -30,7 +30,7 @@ var result = new JyroRunner(program)
     .Execute(); // {"r":6}
 ```
 
-`JyroLibrary.Parse(string, TimeSpan)` applies the given compilation time limit; the one-argument form applies the default of 5 seconds. A `JyroLibrary` exposes `DeclarationCount`, the number of declarations it holds.
+`JyroLibrary.Parse(string, TimeSpan)` applies the given compilation time limit; the one-argument form applies the default of 5 seconds. A `JyroLibrary` exposes `DeclarationCount`, the number of declarations it holds, and `DeclaredNames`, the names of the functions and unions it declares, each once, in source order.
 
 ## What each step checks
 
