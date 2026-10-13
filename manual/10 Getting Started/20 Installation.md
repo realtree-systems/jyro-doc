@@ -14,7 +14,6 @@ The current release is [1.0.0-rc.1](https://github.com/realtree-systems/jyro-cli
 | Linux x64 | [Debian package](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-x64.deb), [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-x64.tar.gz) |
 | Linux ARM64 | [Debian package](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-arm64.deb), [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-arm64.tar.gz) |
 | macOS Apple silicon | Homebrew, or [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-macos-arm64.tar.gz) |
-| macOS Intel | Homebrew, or [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-macos-x64.tar.gz) |
 
 The release also carries `SHA256SUMS.txt`, the SHA-256 checksum of every package.
 
@@ -26,7 +25,7 @@ The zip archive holds `Jyro.exe` alone. Place it in a directory on the `PATH`. F
 
 ### macOS
 
-Homebrew installs the command `jyro` for either processor:
+Homebrew installs the command `jyro`:
 
 ```bash
 brew install realtree-systems/tap/jyro
