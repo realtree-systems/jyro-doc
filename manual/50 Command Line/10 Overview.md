@@ -32,11 +32,13 @@ Every command except `man` and `init-config` accepts these options.
 
 | Option | Alias | Default | Effect |
 | --- | --- | --- | --- |
-| `--log-file <path>` | `-l` | none | Writes log output to the file as well as the console |
+| `--log-file <path>` | `-l` | none | Writes log output to the file |
 | `--verbosity <level>` | `-v` | `Information` | The minimum level: `Trace`, `Debug`, `Information`, `Warning`, `Error`, `Critical`, or `None` |
 | `--quiet` | `-q` | off | Disables all log output |
-| `--console-logging <true\|false>` | | `true` | Enables or disables log output to the console |
+| `--console-logging <true\|false>` | | `false` | Enables or disables log output to the console, on stderr |
 | `--log-format <text\|json>` | | `text` | The log format; `json` writes one JSON object per line |
+
+Log output never goes to stdout, which carries only a command's own output, so `jyro run` can be piped to another program whatever the logging options are.
 
 At the top level `v` is the alias of `validate`; inside a command `-v` is the verbosity.
 

@@ -23,7 +23,7 @@ jyro init-config [-o <path>] [--global] [-f]
   "logFile": "",
   "logLevel": "Information",
   "noLogging": false,
-  "consoleLogging": true,
+  "consoleLogging": false,
   "logFormat": "text",
   "stats": false,
   "pluginAssemblies": "",
