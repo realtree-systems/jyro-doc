@@ -6,14 +6,14 @@ Jyro is available as a command line tool for Windows, macOS, and Linux, as a NuG
 
 The `jyro` command line tool compiles, runs, validates, and tests scripts, and shows this manual with `jyro man`. The tool is self-contained and does not require a .NET runtime to be installed.
 
-The current release is [1.0.0-rc.1](https://github.com/realtree-systems/jyro-cli/releases/tag/v1.0.0-rc.1). Its packages are:
+The current release is [1.0.0-rc.2](https://github.com/realtree-systems/jyro-cli/releases/tag/v1.0.0-rc.2). Its packages are:
 
 | Platform | Package |
 |----------|---------|
-| Windows x64 | [MSI installer](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-win-x64.msi), [zip archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-win-x64.zip) |
-| Linux x64 | [Debian package](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-x64.deb), [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-x64.tar.gz) |
-| Linux ARM64 | [Debian package](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-arm64.deb), [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-linux-arm64.tar.gz) |
-| macOS Apple silicon | Homebrew, or [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.1/jyro-macos-arm64.tar.gz) |
+| Windows x64 | [MSI installer](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-win-x64.msi), [zip archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-win-x64.zip) |
+| Linux x64 | [Debian package](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-linux-x64.deb), [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-linux-x64.tar.gz) |
+| Linux ARM64 | [Debian package](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-linux-arm64.deb), [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-linux-arm64.tar.gz) |
+| macOS Apple silicon | Homebrew, or [tar archive](https://github.com/realtree-systems/jyro-cli/releases/download/v1.0.0-rc.2/jyro-macos-arm64.tar.gz) |
 
 The release also carries `SHA256SUMS.txt`, the SHA-256 checksum of every package.
 
